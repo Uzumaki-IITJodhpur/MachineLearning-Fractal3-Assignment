@@ -1,0 +1,18 @@
+Data:
+	Tried with data augmentation techniques like random_rotation and horizontal-vertical-flip. But as per the observation seen while trianing the model, the dataset were getting mislabelled with too much augmentation, like 6 can be a vertical and horizontal flip of digit 9 (for example in english digits), resulting to decrease in accuracy.
+
+Model Architecture:
+1)
+	Initially I started with minimal architecture like below.
+	Flatten -> Dense(64)
+	Resulting into training and testing accuracy to .9 and .88.
+2)
+	Then after some amount of experiments decided with a complex architecture.
+	Flatten -> Dense(128) -> Dense(64) -> Dense(32) -> Dense(10)
+	Resulting into training and testing accuracy to 1 and .94.
+	I could see overfitting in the data.
+3)
+	To resolve the overfitting in earlier architecture introduced Dropout as follows.
+	Flatten -> Dense(128) -> Dense(64) -> Dense(32) -> Dropout(0.4) -> Dense(10)
+	Final training and testing accuracy 0.9880 and 0.9663.
+
